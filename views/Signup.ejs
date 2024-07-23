@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/Style') %>
+  <title>Signin</title>
+</head>
+<body>
+  <%- include("./partials/Nav",{name}) %>
+
+  <form action="/user/Signup" method="post"  enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="pic" class="form-label">Profile Pics
+      </label>
+      <input type="file" class="form-control" id="pic" name="pic">
+    <div class="mb-3">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <%- include('partials/Script') %>
+</body>
+</html>
+
+

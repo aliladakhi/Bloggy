@@ -1,0 +1,8 @@
+<div class="likes-section">
+  <h5>Likes</h5>
+  <ul class="list-group">
+    <% LikeUsers.forEach(like => { %>
+      <li class="list-group-item"><%= like.name %></li>
+    <% }); %>
+  </ul>
+</div>

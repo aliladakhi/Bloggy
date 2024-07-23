@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Home</title>
+</head>
+<body>
+  
+  Welcome to Bloggy
+  
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <%- include('partials/Style') %>
+  <style>
+    .profile-card {
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #e3e3e3;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007bff; /* Blue border to match Bootstrap primary color */
+      margin-bottom: 15px;
+    }
+    .profile-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    .profile-email {
+      font-size: 0.9rem;
+      color: #6c757d; /* Bootstrap secondary color */
+    }
+  </style>
+</head>
+<body>
+  <%- include("./partials/Nav",{name}) %>
+  <div class="container">
+    <div class="profile-card">
+      <img src="<%= profile_imgUrl %>" alt="Profile Image" class="profile-img">
+      <h3 class="profile-name"><%= name %></h3>
+      <p class="profile-email"><%= email %></p>
+    </div>
+  </div>
+  <%- include("./partials/Script") %>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

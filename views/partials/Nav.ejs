@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Bloggy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home/explore">Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashBoard">DashBoard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/Signin">Signin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/Signup">Signup</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <%= name?name:"USER" %>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/user/Logout">Logout</a></li>
+            <li><a class="dropdown-item" href="/blog">Create a new Blog</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

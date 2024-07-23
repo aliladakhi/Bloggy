@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/Style') %>
+    <title>Home</title>
+  </head>
+  <body>
+    <%- include("./partials/Nav",{name}) %>
+    <form action="/blog" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="profilepic" class="form-label">Profile Pics
+        </label>
+        <input type="file" class="form-control" id="profilepic" name="profilepic">
+      <div class="mb-3">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          placeholder="Blog Title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="blogContent" class="form-label">Example textarea</label>
+        <textarea
+          class="form-control"
+          name="blogContent"
+          id="blogContent"
+          rows="3"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <%- include("./partials/Script") %>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <style>
+    .post-section { padding: 20px; }
+    .likes-section, .comments-section { padding: 20px; }
+    .post-image { width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <%- include("./partials/Nav",{name}) %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <%- include('./partials/likes', { LikeUsers }) %>
+      </div>
+      <div class="col-md-6 post-section">
+        <div class="card">
+          <img src="/images/WIN_20240323_17_15_45_Pro.jpg" class="card-img-top post-image" alt="Post Image">
+          <div class="card-body">
+            <h5 class="card-title"><%=title %></h5>
+            <p class="card-text"><%=blogContent %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <%- include('./partials/comments', { commentss }) %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

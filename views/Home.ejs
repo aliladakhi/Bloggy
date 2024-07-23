@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/Style') %>
+    <title>Home</title>
+  </head>
+  <body>
+    <%- include("./partials/Nav",{name}) %>
+
+    <div
+      style="
+        margin-top: 20px;
+        padding-block: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+    <% if (blogs && blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <%- include("./partials/Card", {imgurl:blog.coverUrl, id:blog._id ,title: blog.title, blogContent: blog.blogContent ,like:blog.numberOfLikes,comment:blog.numberOfComments}) %>
+      <% }) %>
+    <% } else { %>
+      <p>No blogs available</p>
+    <% } %>
+    </div>
+    <%- include("./partials/Script") %>
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>
