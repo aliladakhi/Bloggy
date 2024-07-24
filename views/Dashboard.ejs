@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('partials/Style') %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <style>
+    .dashboard-section { padding: 20px; }
+    .card { margin-bottom: 20px; }
+    .card-header { font-size: 1.2rem; font-weight: bold; }
+    .profile-img { width: 50px; height: 50px; border-radius: 50%; }
+  </style>
 </head>
 <body>
-  <%- include("./partials/Nav",{name}) %>
-
-  <%- include("./partials/Script") %>
+  <%- include("./partials/Nav", {name}) %>
+  <div class="container-fluid dashboard-section">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card text-white bg-primary">
+          <div class="card-header">Total Users</div>
+          <div class="card-body">
+            <h5 class="card-title"><%= totalUsers %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-success">
+          <div class="card-header">Total Posts</div>
+          <div class="card-body">
+            <h5 class="card-title"><%= totalPosts %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-info">
+          <div class="card-header">Total Comments</div>
+          <div class="card-body">
+            <h5 class="card-title"><%= totalComments %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-white bg-warning">
+          <div class="card-header">Total Likes</div>
+          <div class="card-body">
+            <h5 class="card-title"><%= totalLikes %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Latest Posts</div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <% latestPosts.forEach(post => { %>
+                <li class="list-group-item">
+                  <h5 class="mb-1"><%= post.title %></h5>
+                  <small>By <%= post.author %> on <%= post.date %></small>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">User Statistics</div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <% userStats.forEach(stat => { %>
+                <li class="list-group-item d-flex align-items-center">
+                  <img src="<%= stat.profilePicture %>" alt="Profile Picture" class="profile-img mr-3">
+                  <div>
+                    <h5 class="mb-1"><%= stat.userName %></h5>
+                    <small>Total Posts: <%= stat.totalPosts %></small><br>
+                    <small>Total Comments: <%= stat.totalComments %></small><br>
+                    <small>Total Likes: <%= stat.totalLikes %></small>
+                  </div>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

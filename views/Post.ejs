@@ -10,6 +10,8 @@
     .post-section { padding: 20px; }
     .likes-section, .comments-section { padding: 20px; }
     .post-image { width: 100%; height: auto; }
+    .user-info { display: flex; align-items: center; margin-bottom: 10px; }
+    .user-info img { border-radius: 50%; width: 40px; height: 40px; margin-right: 10px; }
   </style>
 </head>
 <body>
@@ -21,10 +23,17 @@
       </div>
       <div class="col-md-6 post-section">
         <div class="card">
-          <img src="/images/WIN_20240323_17_15_45_Pro.jpg" class="card-img-top post-image" alt="Post Image">
           <div class="card-body">
-            <h5 class="card-title"><%=title %></h5>
-            <p class="card-text"><%=blogContent %></p>
+          <div class="user-info">
+            <img src="<%= profile_imgUrl %>" alt="User Profile Picture">
+            <h5 class="card-title"><%=name%></h5>
+          </div>
+        </div>
+          <img src="<%= coverUrl %>" class="card-img-top post-image" alt="Post Image">
+          <div class="card-body">
+            
+            <h5 class="card-title"><%= title %></h5>
+            <p class="card-text"><%= blogContent %></p>
           </div>
         </div>
       </div>

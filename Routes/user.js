@@ -28,16 +28,16 @@ const upload = multer({ storage: storage })
 userRouter.route("/Signin")
   .get((req, res) => {
     const name = req.user ? req.user.name : "USER";
-    console.log(name);
+
     res.render("Signin", {name});
   })
   .post(async (req, res) => {
     try {
-      console.log(req);
+
       const { email, password } = req.body;
-      console.log(email);
+ 
       const user = await User.findOne({ email });
-      console.log(user);
+
       if (!user) {
         return res.render("Signin",{name:"NOT USER"});
       }

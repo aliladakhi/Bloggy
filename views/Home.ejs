@@ -20,7 +20,7 @@
     >
     <% if (blogs && blogs.length > 0) { %>
       <% blogs.forEach(blog => { %>
-        <%- include("./partials/Card", {imgurl:blog.coverUrl, id:blog._id ,title: blog.title, blogContent: blog.blogContent ,like:blog.numberOfLikes,comment:blog.numberOfComments}) %>
+        <%- include("./partials/Card", {blog}) %>
       <% }) %>
     <% } else { %>
       <p>No blogs available</p>

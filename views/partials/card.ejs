@@ -11,31 +11,31 @@ function truncateText(text, wordLimit) {
 <div class="card" style="width: 25rem;">
   <!-- Profile Header -->
   <div class="card-header d-flex align-items-center">
-    <img src="/images/default.jpg" class="rounded-circle" alt="Profile Image" style="width: 40px; height: 40px; object-fit: cover;">
-    <h6 class="ms-2 mb-0">Mohmad Ali</h6>
+    <img src="<%= blog.profile_imgUrl %>" class="rounded-circle" alt="Profile Image" style="width: 40px; height: 40px; object-fit: cover;">
+    <h6 class="ms-2 mb-0"><%= blog.name %></h6>
   </div>
 
   <!-- Post Content -->
-  <img src="<%= imgurl %>" class="card-img-top" alt="Post Image">
+  <img src="<%= blog.coverUrl %>" class="card-img-top" alt="Post Image">
   <div class="card-body">
-    <h5 class="card-title"><%= title %></h5>
-    <p class="card-text"><%= truncateText(blogContent, 10) %></p>
-    <a href="/blog/<%= id %>" class="btn btn-primary">See Post</a>
+    <h5 class="card-title"><%= blog.title %></h5>
+    <p class="card-text"><%= truncateText(blog.blogContent, 10) %></p>
+    <a href="/blog/<%= blog._id %>" class="btn btn-primary">See Post</a>
     <div class="mt-3">
       <!-- Make sure to include the correct id in the onclick function -->
-      <button class="btn btn-outline-primary me-2" type="button" onclick="toggleCommentSection('<%= id %>')">
-        <i class="bi bi-chat-dots"></i> <%= comment %> Comment 
+      <button class="btn btn-outline-primary me-2" type="button" onclick="toggleCommentSection('<%= blog._id %>')">
+        <i class="bi bi-chat-dots"></i> <%= blog.numberOfComments %> Comment 
       </button>
-      <button class="btn btn-outline-primary me-2" type="button" onclick="likePost('<%= id %>')">
-        <i class="bi bi-hand-thumbs-up"></i> <%= like %> Like 
+      <button class="btn btn-outline-primary me-2" type="button" onclick="likePost('<%= blog._id %>')">
+        <i class="bi bi-hand-thumbs-up"></i> <%= blog.numberOfLikes %> Like 
       </button>      
       <button class="btn btn-outline-primary" type="button">
         <i class="bi bi-share"></i> Share
       </button>
     </div>
     <!-- Hidden Comment Section -->
-    <div id="comment-section-<%= id %>" class="comment-section mt-3" style="display: none;">
-      <form action="/blog/comment/<%= id %>" method="post">
+    <div id="comment-section-<%= blog._id %>" class="comment-section mt-3" style="display: none;">
+      <form action="/blog/comment/<%= blog._id %>" method="post">
         <div class="form-group">
           <textarea class="form-control" name="comment" rows="3" placeholder="Add a comment..."></textarea>
         </div>
